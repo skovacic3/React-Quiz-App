@@ -82,6 +82,7 @@ class Main extends Component {
 
   handleQuizPick = (event) => {
     const quizNum = event.target.value;
+    console.log(quizNum);
     this.setState({
       quizHandler:{
         quizNum: quizNum,
@@ -143,11 +144,15 @@ class Main extends Component {
     else if(this.state.showing === "maker"){
       return (
         <>
-          <QuizMaker sent={this.handleQuizSent}/>
+          <QuizMaker showFirstScreen={this.showQuizez} sent={this.handleQuizSent}/>
           {this.state.quizez.map(quiz => <p>{quiz.title}</p>)}
         </>
       )
     }
+  }
+
+  showQuizez = () => {
+    this.setState({showing: "quiz"});
   }
 
   clickHandler = event => {

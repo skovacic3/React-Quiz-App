@@ -30,16 +30,19 @@ class QuizMaker extends Component{
         else{
             const questions = [...this.state.questions, question];
             this.setState({questions: questions, action: action});
-        } 
+            
+        }
     }
 
     componentDidUpdate(prevProps, prevState){
         if(prevState.questions !== this.state.questions){
             if(this.state.action === "end"){
                 this.props.sent({title:this.state.title, questions:this.state.questions});
+                this.props.showFirstScreen();
             }
         }
     }
+
 
     render(){
         return(

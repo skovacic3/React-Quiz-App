@@ -31,7 +31,7 @@ class questionMaker extends Component {
             alert("Choose a correct answer");
         }
         else{
-            this.props.sendClick("next",{question:this.state.question,
+            this.props.sendClick(this.state.correct,"next",{question:this.state.question,
                 answers:this.state.answers,
                 correct:this.state.correct});
             this.setState({
